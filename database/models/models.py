@@ -1,25 +1,3 @@
-# import sqlite3
-
-# connection = sqlite3.connect('save-handmade.db', autoconnect=True) # создаём соединение с экземпляром БД
-
-# cursor = connection.cursor() # создаём курсор для работы с БД
-
-# products_tb = '''
-#     CREATE TABLE IF NOT EXISTS products (
-#       product_id INTEGER PRIMARY KEY AUTOINCREMENT,
-#       product_nm TEXT NOT NULL,
-#       price REAL CHECK (price >= 0),
-#       stock_quantity INTEGER CHECK (stock_quantity >= 0)
-#     )
-# '''
-# cursor.execute(products_tb)
-# connection.commit()
-
-
-# cursor.close()
-# connection.close()
-
-
 import peewee
 
 handmade_database = peewee.SqliteDatabase('save-handmade.db', autoconnect=True)
@@ -51,13 +29,13 @@ class Users(BaseModel):
 class Sections(BaseModel):
     id = peewee.AutoField()
     section_name = peewee.TextField()
-    user_id = peewee.TextField()
+    user_id = peewee.IntegerField()
     
 class Subsections(BaseModel):
     id = peewee.AutoField()
     section_id = peewee.IntegerField()
     subsection_name = peewee.TextField()
-    user_id = peewee.TextField()       
+    user_id = peewee.IntegerField()      
     
 class PatternPage(BaseModel):
     id = peewee.AutoField()
