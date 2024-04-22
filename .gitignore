@@ -2,3 +2,5 @@
 .idea/*
 venv
 loggers.*
+*__pycache__
+*.db
